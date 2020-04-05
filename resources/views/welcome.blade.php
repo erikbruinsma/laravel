@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Staging Laravel
                 </div>
 
                 <div class="links">
