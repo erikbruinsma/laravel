@@ -21,6 +21,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/views', function () { 
+     $visits = Redis::incr('visits');
+     return $visits;
+});
+
 Route::get('upload', function() {
     $files = Storage::disk('spaces')->files('uploads');
 
