@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redis; 
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/views', function () { 
+Route::get('/views', function () {
      $visits = Redis::incr('visits');
      return $visits;
 });
