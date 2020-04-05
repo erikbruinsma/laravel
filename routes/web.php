@@ -20,3 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('upload', function() {
+    $files = Storage::disk('spaces')->files('uploads');
+
+    return view('upload', compact('files'));
+});
+
+Route::post('upload', function() {
+    Storage::disk('spaces')->putFile('uploads', request()->file, 'public');
+
+    return redirect()->back();
+});
