@@ -17,16 +17,17 @@ Route::group(['middleware' => 'cacheable'], function () {
   Route::get('/', function () {
       return view('welcome');
   });
+  Route::get('/home', 'HomeController@index')->name('home');
+
+  Route::get('/views', function () {
+       $visits = Redis::incr('visits');
+       return $visits;
+  });
+
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/views', function () {
-     $visits = Redis::incr('visits');
-     return $visits;
-});
 
 Route::get('upload', function() {
     $files = Storage::disk('spaces')->files('uploads');
