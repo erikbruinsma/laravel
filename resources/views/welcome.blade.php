@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                   Laravel Cached <?PHP time(); ?>
+                   Laravel Cached <?PHP echo time(); ?>
                 </div>
 
                 <div class="links">
