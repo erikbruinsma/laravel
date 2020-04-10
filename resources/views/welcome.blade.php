@@ -84,28 +84,15 @@
                    Laravel Cached <?PHP echo time(); ?>
 
                    <?PHP
-                   $input = '32423948249';
-                   function Prime($num) {
-                           if($num < 2)
-                               return false;
+                   $a = 3.1415926;
+$b = 2.718;
 
-                           for ($i = 2; $i < $num; $i++)
-                           {
-                               if($num % $i == 0)
-                                   return false;
-                           }
-                           return true;
-                       }
-
-                       for($i = $input; $i > 0; $i--) {
-                           if(Prime($i))
-                               echo $i;
-
-                           if(Prime($i))
-                               exit();
-                       }
-
-
+for($j=0; $j<10; $j++) {
+    for($i=0; $i<1000; $i++) {
+        $a = $a + $b;
+    }
+}
+echo "a = $a\n";
                     ?>
 
                 </div>
