@@ -84,8 +84,8 @@
                    Laravel Cached <?PHP echo time(); ?>
 
                    <?PHP
-                   function Prime($num)
-                       {
+                   $i = '324242426435989238492384239482948239482349284928423948249';
+                   function Prime($num) {
                            if($num < 2)
                                return false;
 
@@ -97,17 +97,16 @@
                            return true;
                        }
 
-                       for($i = $input; $i > 0; $i--)
-                       {
+                       for($i = $input; $i > 0; $i--) {
                            if(Prime($i))
                                echo $i;
 
                            if(Prime($i))
                                exit();
                        }
-                   }
 
-                   echo Prime('324242426435989238492384239482948239482349284928423948249');  ?>
+
+                    ?>
 
                 </div>
 
