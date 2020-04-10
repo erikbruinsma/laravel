@@ -84,7 +84,37 @@
                    Laravel Cached <?PHP echo time(); ?>
 
                    <?PHP
-                    $u = 1 ;				
+
+                   function convert_ch($from,$to,$val,$time){
+	global $is_from_coin ;
+	global $is_to_coin ;
+	if(!$is_from_coin&&!$is_to_coin){
+		$fromp = get_price($to,$time) ;
+ 		$top = get_price($from,$time) ;
+	}elseif($is_from_coin&&!$is_to_coin){
+		$fromp = get_price($from,$time) ;
+ 		$top = get_price("usd",$time) ;
+	}else{
+		$top = get_price($to,$time)  ;
+ 		$fromp = get_price($from,$time)  ;
+	}
+	$r = 0  ;
+	$dec = 3 ;
+
+	if($top == null || $fromp == null)
+		return false ;
+
+
+	$r = number_format(($fromp / $top) * $val,7) ;
+
+	$r = str_replace(",","", $r);
+	if($is_from_coin&&!$is_to_coin){
+		$r = convert_ch("usd",$to,$r,$time);
+	}
+	return ($r * 1 ) ;
+}
+
+                    $u = 1 ;
                     	while($u < 7):
                     	$sub = "-$u days" ;
                       ?>
