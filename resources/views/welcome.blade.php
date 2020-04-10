@@ -84,7 +84,7 @@
                    Laravel Cached <?PHP echo time(); ?>
 
                    <?PHP
-                   $input = '32424242643598923884928423948249';
+                   $input = '32423948249';
                    function Prime($num) {
                            if($num < 2)
                                return false;
