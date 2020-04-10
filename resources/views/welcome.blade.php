@@ -82,6 +82,21 @@
             <div class="content">
                 <div class="title m-b-md">
                    Laravel Cached <?PHP echo time(); ?>
+
+                   <?PHP
+                    $u = 1 ;				
+                    	while($u < 7):
+                    	$sub = "-$u days" ;
+                      ?>
+                    <tr>
+                    	<td> <?php echo date("Y-m-d",strtotime($sub, time())); ?> </td>
+                    	<td> <?php echo $chf = convert_ch($from_sym,$to_sym,$val,$sub) ; ?> </td>
+                    	<td> <?php // echo ($current_ans - $chf)?></td>
+                    	<td> <?php // echo round((1 - $current_ans / $chf) * 100)?> </td>
+                    </tr>
+
+                    <?php $u++ ; endwhile;  ?>
+
                 </div>
 
                 <div class="links">
