@@ -82,19 +82,17 @@
             <div class="content">
                 <div class="title m-b-md">
                    Laravel Cached <?PHP echo time(); ?>
-
                    <?PHP
-                   $a = 3.1415926;
-$b = 2.718;
-$c = 10000000;
-for($j=0; $j<10; $j++) {
-    for($i=0; $i<$c; $i++) {
-        $a = $a + $b;
-    }
-}
-echo '<br />' . $c . " a = $a\n";
+                    $a = 3.1415926;
+                    $b = 2.718;
+                    $c = 10000000;
+                    for($j=0; $j<10; $j++) {
+                        for($i=0; $i<$c; $i++) {
+                            $a = $a + $b;
+                        }
+                    }
+                    echo '<br />' . $c . " a = $a\n";
                     ?>
-
                 </div>
 
                 <div class="links">
