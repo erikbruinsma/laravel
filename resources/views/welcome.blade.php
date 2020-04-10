@@ -84,48 +84,30 @@
                    Laravel Cached <?PHP echo time(); ?>
 
                    <?PHP
+                   function Prime($num)
+                       {
+                           if($num < 2)
+                               return false;
 
-                   function convert_ch($from,$to,$val,$time){
-	global $is_from_coin ;
-	global $is_to_coin ;
-	if(!$is_from_coin&&!$is_to_coin){
-		$fromp = get_price($to,$time) ;
- 		$top = get_price($from,$time) ;
-	}elseif($is_from_coin&&!$is_to_coin){
-		$fromp = get_price($from,$time) ;
- 		$top = get_price("usd",$time) ;
-	}else{
-		$top = get_price($to,$time)  ;
- 		$fromp = get_price($from,$time)  ;
-	}
-	$r = 0  ;
-	$dec = 3 ;
+                           for ($i = 2; $i < $num; $i++)
+                           {
+                               if($num % $i == 0)
+                                   return false;
+                           }
+                           return true;
+                       }
 
-	if($top == null || $fromp == null)
-		return false ;
+                       for($i = $input; $i > 0; $i--)
+                       {
+                           if(Prime($i))
+                               echo $i;
 
+                           if(Prime($i))
+                               exit();
+                       }
+                   }
 
-	$r = number_format(($fromp / $top) * $val,7) ;
-
-	$r = str_replace(",","", $r);
-	if($is_from_coin&&!$is_to_coin){
-		$r = convert_ch("usd",$to,$r,$time);
-	}
-	return ($r * 1 ) ;
-}
-
-                    $u = 1 ;
-                    	while($u < 7):
-                    	$sub = "-$u days" ;
-                      ?>
-                    <tr>
-                    	<td> <?php echo date("Y-m-d",strtotime($sub, time())); ?> </td>
-                    	<td> <?php echo $chf = convert_ch($from_sym,$to_sym,$val,$sub) ; ?> </td>
-                    	<td> <?php // echo ($current_ans - $chf)?></td>
-                    	<td> <?php // echo round((1 - $current_ans / $chf) * 100)?> </td>
-                    </tr>
-
-                    <?php $u++ ; endwhile;  ?>
+                   echo Prime('324242426435989238492384239482948239482349284928423948249');  ?>
 
                 </div>
 
