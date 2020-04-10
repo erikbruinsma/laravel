@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Redis;
 */
 Route::group(['middleware' => 'cacheable'], function () {
   Route::get('/', function () {
-      return dd(App\Users::all());
+      return dd(App\User::all());
 
   });
   Route::get('/home', 'HomeController@index')->name('home');
